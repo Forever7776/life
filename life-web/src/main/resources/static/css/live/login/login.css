@@ -1,0 +1,686 @@
+﻿/*全局开始*/
+body {
+    font: 12px "微软雅黑", Tahoma, Geneva, sans-serif;
+    color: #333;
+}
+
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, select, blockquote, th, td {
+    padding: 0px;
+    margin: 0px;
+}
+
+ul, li, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+a img {
+    border: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+em, i, b {
+    font-style: normal;
+}
+
+.login {
+    width: 300px;
+    height: 400px;
+    /* display: none; */
+    position: absolute;
+    right: 120px;
+    margin-left: 100px;
+    top: 175px;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 99;
+    box-shadow: -7px 5px 21px 0px #939ea9;
+    border-radius: 10px;
+}
+
+.login_input {
+    width: 200px;
+    display: block;
+    border: 1px solid #666;
+    height: 35px;
+    line-height: 35px;
+    margin: 0px auto;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.login_password {
+    background: url(${root}images/login/password3.png) no-repeat left;
+    background-size: 30px 30px;
+    padding-left: 35px;
+
+}
+
+.login_name {
+    background: url(${root}images/login/user51.png) no-repeat left;
+    background-size: 30px 30px;
+    padding-left: 35px;
+
+}
+
+.user_login {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    padding-left: 40%;
+    font-weight: bold;
+    padding-top: 20px;
+    color: #666;
+}
+
+.login_a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 49%;
+    color: #8C8484;
+    margin-top: 10px;
+
+}
+
+.login_message {
+    width: 237px;
+    margin: auto;
+}
+
+.login_registered {
+    text-align: right;
+}
+
+.login_btn {
+    display: block;
+    width: 239px;
+    height: 37px;
+    line-height: 37px;
+    margin: auto;
+    text-align: center;
+    border-radius: 5PX;
+    background: #63AA00;
+    border: 1px solid #64B400;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.login_btn:hover {
+    background: #B2DB95;
+    border: 1px solid #B2DB95;
+    color: #fff;
+}
+
+.ld-overlap-container {
+    width: 100% !important;
+    height: 570px !important;
+}
+
+.company_message {
+    padding-left: 15px;;
+}
+
+@media screen and (max-width: 1400px ) {
+    .ld-overlap-container {
+        width: 100% !important;
+        height: 414px !important;
+    }
+
+    .banner {
+        width: 100%;
+
+        overflow: hidden;
+        position: relative;
+        height: 414px;
+    }
+
+    .login {
+        width: 300px;
+        height: 402px;
+        /* display: none; */
+        position: absolute;
+        right: 12%;
+        top: 115px;
+        background: rgba(255, 255, 255, 0.95);
+        z-index: 99;
+        box-shadow: -7px 5px 21px 0px #939ea9;
+        border-radius: 10px;
+    }
+
+    .company_message {
+        padding-left: 2%;;
+    }
+
+    .logo_img {
+        display: block;
+
+        padding: 18px 0px 0px 9%;
+    }
+}
+
+@media screen and (min-width: 1400px ) {
+    .login {
+        width: 330px;
+        height: 402px;
+        /* display: none; */
+        position: absolute;
+        right: 400px;
+        top: 180px;
+        background: rgba(255, 255, 255, 0.95);
+        z-index: 99;
+        box-shadow: -7px 5px 21px 0px #939ea9;
+        border-radius: 10px;
+    }
+
+    .company_message {
+        padding-left: 1.5%;;
+    }
+}
+
+span {
+    color: red;
+    margin-left: 37px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both !important;
+    float: none !important;
+    font-size: 0px !important;
+    line-height: 0px !important;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix {
+    display: block;
+}
+
+/*默认连接*/
+a:link, a:visited {
+    text-decoration: none;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+a:hover, a:active {
+    color: #64b100;
+    outline: none !important /*FF，IE8下去掉激活的虚线边框*/;
+    *hide-focus: expression(this.hideFocus=true) /*IE6,IE7下去掉激活的虚线边框*/;
+}
+
+.green {
+    color: #64b100;
+}
+
+.top {
+    background-color: #fff;
+    border-bottom: 1px solid #f5f5f5;
+    height: 90px;
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.top .top_con {
+
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.top .top_con a {
+    color: #333;
+    display: block;
+    float: left;
+    padding: 28px 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.top .top_con a span {
+    font-size: 10px;
+    color: #ccc;
+    font-family: "微软雅黑";
+}
+
+.top .top_con .top_tit09 {
+    padding-right: 0px;
+}
+
+.top .top_con a:hover, .top .top_con .on {
+    color: #64b100;
+}
+
+.top .top_con a:hover span, .top .top_con .on span {
+    color: #64b100;
+}
+
+.footer {
+    height: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #fff;
+
+}
+
+.footer .footer_con {
+
+    color: #666;
+    margin: 30px 0px 0px 0px;
+    padding-left: 112px;
+}
+
+.other_link {
+    display: inline-block;
+    width: 5%;
+    border-right: 1px solid #8C8484;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+.footer_con a:last-child {
+    border-right: none;
+}
+
+.footer_con a:hover {
+    color: #64b100;
+}
+
+.footer_con p {
+
+    margin: 10px;
+}
+
+#go-to-top {
+    cursor: pointer;
+    background: url(../../images/login/backtop.png) no-repeat scroll center top;
+    font-size: 0;
+    height: 53px;
+    line-height: 999;
+    overflow: hidden;
+    position: fixed;
+    right: 15px;
+    bottom: 12px;
+    transition: opacity 1s ease 0s;
+    width: 53px;
+    z-index: 1000;
+    _position: absolute;
+    _right: expression(eval(document.documentElement.scrollRight+7));
+    _top: expression(eval(document.documentElement.scrollTop+213));
+}
+
+.rightbox {
+    z-index: 1000;
+    width: 71px;
+    font-size: 0;
+    position: fixed;
+    right: 7px;
+    bottom: 70px;
+    transition: opacity 1s ease 0s;
+    _position: absolute;
+    _right: expression(eval(document.documentElement.scrollRight+7));
+    _top: expression(eval(document.documentElement.scrollBottom+213));
+}
+
+.iphone {
+    height: 71px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 71px;
+
+}
+
+.iphone span {
+    cursor: pointer;
+    height: 71px;
+    width: 71px;
+    text-indent: -9999em;
+    display: block;
+    background: url(../../images/login/iphone.png) no-repeat;
+
+}
+
+.code span {
+    background: url(../../images/login/code.png) no-repeat;
+}
+
+.iphone .iphonehover, .code .codehover {
+    opacity: 0;
+    display: none \9;
+    position: absolute;
+    background: url(../../images/login/iphonehover.png) no-repeat;
+    height: 65px;
+    width: 200px;
+    right: 70px;
+    top: -99999px;
+    /*CSS的transition允许CSS的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑地以动画效果改变CSS的属性值。*/
+    /*不兼容ie*/
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    -ms-transition: opacity 500ms;
+    transition: opacity 500ms;
+
+    opacity: 0; /* Firefox, Safari(WebKit), Opera) */
+    filter: "alpha(opacity=0)";
+    　　 /* IE 8 */ -moz-opacity: 0;
+    -khtml-opacity: 0;
+    zoom: 1;
+    　　 /* needed in IE up to version 7, or set width or height to trigger "hasLayout" */ _display: none;
+}
+
+.code .codehover {
+    background: url(../../images/login/codehover.png) no-repeat;
+    height: 179px;
+    width: 189px;
+}
+
+.iphone:hover .iphonehover {
+    display: block \9;
+    top: 5px;
+    opacity: 1;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    filter: "alpha(opacity=0)";
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+5));
+}
+
+.code:hover .codehover {
+    top: -55px;
+    opacity: 1;
+    display: block \9;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    filter: "alpha(opacity=0)";
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop-55));
+}
+
+
+
+/*全局结束*/
+.logo {
+    display: block;
+    height: 90px;
+
+}
+
+.logo_img {
+    display: block;
+
+    padding: 18px 0px 0px 7%;
+}
+
+.banner {
+    width: 100%;
+
+    overflow: hidden;
+    position: relative;
+    height: 570px;
+}
+
+.banner .banner_tit {
+    position: absolute;
+    top: 0px;
+    left: 120px;
+    vertical-align: middle;
+    width: 700px;
+    height: 570px;
+    display: block;
+
+    z-index: 99;
+}
+
+.box {
+    min-width: 1020px;
+}
+
+.box .box_con {
+    width: 1020px;
+    margin: 100px auto 0px;
+    position: relative;
+    height: 570px;
+}
+
+.box_con .fr {
+    width: 380px;
+}
+
+.box .box_con h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.box .box_con p {
+    text-indent: 2em;
+    font-size: 16px;
+    color: #545454;
+    line-height: 180%;
+}
+
+.uweixin .box_con {
+    margin-top: 100px;
+}
+
+.uweixin .box_con h2 {
+    padding-top: 150px;
+}
+
+.uweixin .box_con .boxbg {
+    background: url(../images/bgimg01.jpg) no-repeat left top;
+    height: 443px;
+    width: 423px;
+    position: absolute;
+    right: -500px;
+    bottom: 0px;
+}
+
+.ysupply .box_con {
+    height: 450px;
+}
+
+.ysupply .fl {
+    width: 380px;
+}
+
+.ysupply .fr {
+    position: absolute;
+    right: -70px;
+    width: 650px;
+}
+
+.ysupply .box_con h2 {
+    padding-top: 50px;
+}
+
+.ysupply .box_con .boxbg {
+    background: url(../images/bgimg02.jpg) no-repeat left top;
+    height: 403px;
+    width: 423px;
+    position: absolute;
+    left: -500px;
+    top: -150px;
+}
+
+.u4s .box_con {
+    height: 450px;
+}
+
+.u4s .fl {
+    position: absolute;
+    left: -80px;
+    width: 650px;
+}
+
+.u4s .flxiao {
+    width: 266px;
+    left: 300px;
+    top: 230px;
+}
+
+.u4s .box_con h2 {
+    padding-top: 50px;
+}
+
+.u4s .box_con .boxbg {
+    background: url(../images/bgimg03.jpg) no-repeat left top;
+    height: 409px;
+    width: 366px;
+    position: absolute;
+    right: -430px;
+    top: -150px;
+}
+
+
+.shuguo .boxbg {
+    background: url(../images/bgimg04.jpg) no-repeat left top;
+    height: 366px;
+    width: 423px;
+    position: absolute;
+    left: -450px;
+    top: -150px;
+}
+
+.shuguo {
+    width: 1020px;
+    position: relative;
+    margin: 80px auto 0px;
+}
+
+.shuguo h2 {
+    text-align: center;
+}
+
+.shuguo h3 {
+    font-size: 20px;
+    margin: 20px 0 40px;
+    color: #999;
+    text-align: center;
+    font-weight: normal;
+
+}
+
+.shuguo .gallery-cell {
+    text-align: center;
+    float: left;
+    margin: 0 10px;
+    *margin: 0 5px
+}
+
+.shuguo .gallery-cell a {
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    border: 1px solid #64b100;
+    border-radius: 50%;
+    height: 320px;
+    line-height: 320px;
+    width: 320px;
+    position: relative;
+}
+
+.shuguo .gallery-cell .info {
+    overflow: hidden;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    border-radius: 50%;
+    opacity: 0;
+    display: none \9;
+    background: #64b100;
+    background: rgba(100, 177, 0, 0.5) none repeat scroll !important;
+    filter: Alpha(opacity=50);
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.shuguo .gallery-cell a:hover .info {
+    display: block \9;
+    opacity: 1;
+}
+
+.shuguo .gallery-cell .info h4 {
+    line-height: 140%;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 130px;
+    position: relative;
+    z-index: 100;
+}
+
+.shuguo .gallery-cell .info h4 span {
+    font-size: 24px;
+}
+
+.shuguo .gallery-cell a img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    object-fit: cover
+}
+
+.flickity-page-dots {
+    display: none;
+}
+
+.flickity-prev-next-button.previous {
+    left: -80px;
+}
+
+.flickity-prev-next-button.next {
+    right: -80px;
+}
+
+
+.js-flickity {
+    width: 1010px;
+    height: 380px;
+}
+
+
+
+
+
+
+/*全局结束*/

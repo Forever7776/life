@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: dev
+  mvc:
+    locale: zh_CN
+    date-format: yyyy-MM-dd
+  http:
+    multipart:
+      max-file-size: 10MB
+  freemarker:
+    allow-request-override: false
+    cache: false
+    check-template-location: false
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    suffix: .ftl
+    request-context-attribute: request
+  mail:
+    host: smtp.163.com
+    username: forever7776@163.com
+    password: kz123456
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  rabbitmq:
+    host: 127.0.0.1
+    username: guest
+    password: guest
+
+
+
+#server
+server:
+  address: 127.0.0.1
+  context-path: /live/
+  port: 8087
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8
+  error:
+    path: /error
+
+
+#logging
+logging:
+  level: warn
+  file: ./logs/error.log

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.forever7776.life.core.persistence.sys.SysFileMapper" >
+  <resultMap id="BaseResultMap" type="com.forever7776.life.core.entity.sys.SysFile" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="file_name" property="fileName" jdbcType="VARCHAR" />
+    <result column="file_size" property="fileSize" jdbcType="INTEGER" />
+    <result column="file_key" property="fileKey" jdbcType="VARCHAR" />
+    <result column="file_suffix" property="fileSuffix" jdbcType="VARCHAR" />
+    <result column="file_type" property="fileType" jdbcType="TINYINT" />
+    <result column="file_path" property="filePath" jdbcType="VARCHAR" />
+    <result column="media_id" property="mediaId" jdbcType="VARCHAR" />
+    <result column="file_status" property="fileStatus" jdbcType="TINYINT" />
+    <result column="insert_date" property="insertDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, file_name, file_size, file_key, file_suffix, file_type, file_path, media_id, 
+    file_status, insert_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.forever7776.life.core.entity.sys.SysFileExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from sys_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_file
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_file
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.forever7776.life.core.entity.sys.SysFileExample" >
+    delete from sys_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.forever7776.life.core.entity.sys.SysFile" >
+    insert into sys_file (id, user_id, file_name, 
+      file_size, file_key, file_suffix, 
+      file_type, file_path, media_id, 
+      file_status, insert_date)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileSize,jdbcType=INTEGER}, #{fileKey,jdbcType=VARCHAR}, #{fileSuffix,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=TINYINT}, #{filePath,jdbcType=VARCHAR}, #{mediaId,jdbcType=VARCHAR}, 
+      #{fileStatus,jdbcType=TINYINT}, #{insertDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.forever7776.life.core.entity.sys.SysFile" >
+    insert into sys_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="fileName != null" >
+        file_name,
+      </if>
+      <if test="fileSize != null" >
+        file_size,
+      </if>
+      <if test="fileKey != null" >
+        file_key,
+      </if>
+      <if test="fileSuffix != null" >
+        file_suffix,
+      </if>
+      <if test="fileType != null" >
+        file_type,
+      </if>
+      <if test="filePath != null" >
+        file_path,
+      </if>
+      <if test="mediaId != null" >
+        media_id,
+      </if>
+      <if test="fileStatus != null" >
+        file_status,
+      </if>
+      <if test="insertDate != null" >
+        insert_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize,jdbcType=INTEGER},
+      </if>
+      <if test="fileKey != null" >
+        #{fileKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSuffix != null" >
+        #{fileSuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=TINYINT},
+      </if>
+      <if test="filePath != null" >
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaId != null" >
+        #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileStatus != null" >
+        #{fileStatus,jdbcType=TINYINT},
+      </if>
+      <if test="insertDate != null" >
+        #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.forever7776.life.core.entity.sys.SysFileExample" resultType="java.lang.Integer" >
+    select count(*) from sys_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_file
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileName != null" >
+        file_name = #{record.fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileSize != null" >
+        file_size = #{record.fileSize,jdbcType=INTEGER},
+      </if>
+      <if test="record.fileKey != null" >
+        file_key = #{record.fileKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileSuffix != null" >
+        file_suffix = #{record.fileSuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileType != null" >
+        file_type = #{record.fileType,jdbcType=TINYINT},
+      </if>
+      <if test="record.filePath != null" >
+        file_path = #{record.filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mediaId != null" >
+        media_id = #{record.mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileStatus != null" >
+        file_status = #{record.fileStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.insertDate != null" >
+        insert_date = #{record.insertDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_file
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      file_name = #{record.fileName,jdbcType=VARCHAR},
+      file_size = #{record.fileSize,jdbcType=INTEGER},
+      file_key = #{record.fileKey,jdbcType=VARCHAR},
+      file_suffix = #{record.fileSuffix,jdbcType=VARCHAR},
+      file_type = #{record.fileType,jdbcType=TINYINT},
+      file_path = #{record.filePath,jdbcType=VARCHAR},
+      media_id = #{record.mediaId,jdbcType=VARCHAR},
+      file_status = #{record.fileStatus,jdbcType=TINYINT},
+      insert_date = #{record.insertDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.forever7776.life.core.entity.sys.SysFile" >
+    update sys_file
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        file_size = #{fileSize,jdbcType=INTEGER},
+      </if>
+      <if test="fileKey != null" >
+        file_key = #{fileKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSuffix != null" >
+        file_suffix = #{fileSuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        file_type = #{fileType,jdbcType=TINYINT},
+      </if>
+      <if test="filePath != null" >
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaId != null" >
+        media_id = #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileStatus != null" >
+        file_status = #{fileStatus,jdbcType=TINYINT},
+      </if>
+      <if test="insertDate != null" >
+        insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.forever7776.life.core.entity.sys.SysFile" >
+    update sys_file
+    set user_id = #{userId,jdbcType=VARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      file_size = #{fileSize,jdbcType=INTEGER},
+      file_key = #{fileKey,jdbcType=VARCHAR},
+      file_suffix = #{fileSuffix,jdbcType=VARCHAR},
+      file_type = #{fileType,jdbcType=TINYINT},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      media_id = #{mediaId,jdbcType=VARCHAR},
+      file_status = #{fileStatus,jdbcType=TINYINT},
+      insert_date = #{insertDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

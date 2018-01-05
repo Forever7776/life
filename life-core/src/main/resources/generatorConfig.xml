@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <classPathEntry
+            location="D:\tools\maven\repo_zhhw2\mysql\mysql-connector-java\5.1.39\mysql-connector-java-5.1.39.jar"/>
+    <!--<classPathEntry
+            location="C:\Users\Dell\.m2\repository\mysql\mysql-connector-java\5.1.39\mysql-connector-java-5.1.39.jar"/>-->
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <!--comment-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/live"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--model-->
+        <javaModelGenerator targetPackage="com.forever776.life.core.entity.sys" targetProject="MAVEN">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--xml-->
+        <sqlMapGenerator targetPackage="com.forever776.life.core.persistence.sys" targetProject="MAVEN">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--mapper-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.forever776.life.core.persistence.sys" targetProject="MAVEN">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="sys_file" domainObjectName="SysFile"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="file_status" javaType="Integer"/>
+            <columnOverride column="file_type" javaType="Integer"/>
+        </table>
+
+
+        <table tableName="sys_function" domainObjectName="SysFunction"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="level" javaType="Integer"/>
+            <columnOverride column="sort" javaType="Integer"/>
+            <columnOverride column="status" javaType="Integer"/>
+        </table>
+
+        <table tableName="sys_role" domainObjectName="SysRole"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="status" javaType="Integer"/>
+        </table>
+
+        <table tableName="sys_role_function" domainObjectName="SysRoleFunction"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+        </table>
+
+        <table tableName="sys_role_user" domainObjectName="SysRoleUser"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+        </table>
+
+        <table tableName="shiro_authority_setting" domainObjectName="ShiroAuthoritySetting"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="id" javaType="Integer"/>
+            <columnOverride column="sort" javaType="Integer"/>
+            <columnOverride column="status" javaType="Integer"/>
+        </table>
+
+        <table tableName="sys_user" domainObjectName="SysUser"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="status" javaType="Integer"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>
